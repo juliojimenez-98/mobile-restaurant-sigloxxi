@@ -1,0 +1,7 @@
+{
+  "name": "mobile-restaurant-sigloxxi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

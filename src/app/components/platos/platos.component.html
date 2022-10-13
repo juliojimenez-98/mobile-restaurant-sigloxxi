@@ -1,0 +1,15 @@
+<ion-card fixed *ngFor="let item of platos">
+  <img
+    alt="Silhouette of mountains"
+    src="https://www.recetas-venezolanas.com/base/stock/Recipe/205-image/205-image_web.jpg"
+  />
+  <ion-card-header>
+    <ion-card-title>{{ item.recetum.nombre_prep }}</ion-card-title>
+    <ion-card-subtitle>{{ item.precio }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    Here's a small text description for the card content. Nothing more, nothing
+    less.
+  </ion-card-content>
+</ion-card>

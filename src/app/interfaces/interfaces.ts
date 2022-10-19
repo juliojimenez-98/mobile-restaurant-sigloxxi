@@ -7,6 +7,7 @@ export interface Plato {
   desc: number;
   precio: number;
   estado: number;
+  img: string;
   id_receta: number;
   receta: Receta;
   recetum?: Receta;

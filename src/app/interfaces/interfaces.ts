@@ -9,6 +9,7 @@ export interface Plato {
   estado: number;
   img: string;
   id_receta: number;
+  tipo_plato: number;
   receta: Receta;
   recetum?: Receta;
 }

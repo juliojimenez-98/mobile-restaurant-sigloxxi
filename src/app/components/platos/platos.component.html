@@ -1,7 +1,82 @@
-<ion-card fixed *ngFor="let item of platos">
-  <img alt="imagen" [src]="item.img" />
-  <ion-card-header>
-    <ion-card-title>{{ item.recetum.nombre_prep }}</ion-card-title>
-    <ion-card-subtitle>{{ item.precio }}</ion-card-subtitle>
-  </ion-card-header>
-</ion-card>
+<ion-accordion-group>
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+      <ion-label>Tragos</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-card fixed *ngFor="let item of platos">
+        <ng-container *ngIf="item.tipo_plato === 2">
+          <img alt="imagen" [src]="item.img" />
+          <ion-card-header>
+            <ion-card-title>{{ item.recetum.nombre_prep }}</ion-card-title>
+            <ion-card-subtitle>{{ item.precio }}</ion-card-subtitle>
+          </ion-card-header>
+        </ng-container>
+      </ion-card>
+    </div>
+  </ion-accordion>
+  <ion-accordion value="second">
+    <ion-item slot="header" color="light">
+      <ion-label>Entradas</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-card fixed *ngFor="let item of platos">
+        <ng-container *ngIf="item.tipo_plato === 3">
+          <img alt="imagen" [src]="item.img" />
+          <ion-card-header>
+            <ion-card-title>{{ item.recetum.nombre_prep }}</ion-card-title>
+            <ion-card-subtitle>{{ item.precio }}</ion-card-subtitle>
+          </ion-card-header>
+        </ng-container>
+      </ion-card>
+    </div>
+  </ion-accordion>
+  <ion-accordion value="third">
+    <ion-item slot="header" color="light">
+      <ion-label>Platos de fondo</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-card fixed *ngFor="let item of platos">
+        <ng-container *ngIf="item.tipo_plato === 1">
+          <img alt="imagen" [src]="item.img" />
+          <ion-card-header>
+            <ion-card-title>{{ item.recetum.nombre_prep }}</ion-card-title>
+            <ion-card-subtitle>{{ item.precio }}</ion-card-subtitle>
+          </ion-card-header>
+        </ng-container>
+      </ion-card>
+    </div>
+  </ion-accordion>
+  <ion-accordion value="cuarto">
+    <ion-item slot="header" color="light">
+      <ion-label>Ensaladas</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-card fixed *ngFor="let item of platos">
+        <ng-container *ngIf="item.tipo_plato === 4">
+          <img alt="imagen" [src]="item.img" />
+          <ion-card-header>
+            <ion-card-title>{{ item.recetum.nombre_prep }}</ion-card-title>
+            <ion-card-subtitle>{{ item.precio }}</ion-card-subtitle>
+          </ion-card-header>
+        </ng-container>
+      </ion-card>
+    </div>
+  </ion-accordion>
+  <ion-accordion value="quinto">
+    <ion-item slot="header" color="light">
+      <ion-label>Postres</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-card fixed *ngFor="let item of platos">
+        <ng-container *ngIf="item.tipo_plato === 5">
+          <img alt="imagen" [src]="item.img" />
+          <ion-card-header>
+            <ion-card-title>{{ item.recetum.nombre_prep }}</ion-card-title>
+            <ion-card-subtitle>{{ item.precio }}</ion-card-subtitle>
+          </ion-card-header>
+        </ng-container>
+      </ion-card>
+    </div>
+  </ion-accordion>
+</ion-accordion-group>

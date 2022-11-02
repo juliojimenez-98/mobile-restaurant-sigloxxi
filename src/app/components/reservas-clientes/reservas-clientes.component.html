@@ -1,0 +1,33 @@
+<ng-container *ngFor="let item of reservas">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Reserva</ion-card-title>
+      <ion-card-subtitle
+        >Para {{ item.cant_personas }} personas</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-text color="dark"
+        >El día {{ item.fecha_reserva }} a las {{ item.hora_reserva }}</ion-text
+      >
+      <ion-row>
+        <ion-button
+          color="danger"
+          (click)="cancelar(item.id_reserva)"
+          size="small"
+          >Cancelar Reserva</ion-button
+        ><ion-button
+          (click)="confirmar(item.id_reserva)"
+          color="success"
+          size="small"
+          >Confirmar Reserva</ion-button
+        >
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ng-container>
+
+<ng-container *ngIf="reservas.length === 0">
+  <h2 class="ion-margin">No tienes reservas</h2>
+</ng-container>

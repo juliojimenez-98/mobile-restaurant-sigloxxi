@@ -9,15 +9,21 @@
 
 <ion-content [fullscreen]="true">
   <h5 class="ion-margin">Ingresa tu email que asociaste a la reserva</h5>
-  <ion-item class="ion-margin" fill="outline">
-    <ion-label position="floating">Correo</ion-label>
-    <ion-input type="email" ngModel email></ion-input>
-  </ion-item>
+  <form (ngSubmit)="form()">
+    <ion-item class="ion-margin" fill="outline">
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input name="email" type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
 
-  <ion-row class="ion-align-items-center">
-    <ion-col size="12" class="ion-text-center"> </ion-col>
-    <ion-col size="12" class="ion-text-center">
-      <ion-button shape="round">Ver mi reserva</ion-button>
-    </ion-col>
-  </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center"> </ion-col>
+      <ion-col size="12" class="ion-text-center">
+        <ion-button type="submit" shape="round">Ver mi reserva</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  <ng-container *ngIf="showTable">
+    <app-reservas-clientes [reservas]="reservas"></app-reservas-clientes>
+  </ng-container>
 </ion-content>

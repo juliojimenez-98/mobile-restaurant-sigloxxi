@@ -8,35 +8,121 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-text class="ion-margin ion-text-center" color="white">
-    <h3>Ingresa tus datos para continuar</h3>
-  </ion-text>
-  <ion-item class="ion-margin ion-margin-top" fill="outline">
-    <ion-label position="floating">Nombre</ion-label>
-    <ion-input placeholder="Ingrese su nombre"></ion-input>
-  </ion-item>
-  <ion-item class="ion-margin" fill="outline">
-    <ion-label position="floating">Apellido</ion-label>
-    <ion-input placeholder="Ingrese su apellido"></ion-input>
-  </ion-item>
-  <ion-item class="ion-margin" fill="outline">
-    <ion-label position="floating">Correo</ion-label>
-    <ion-input type="email" ngModel email></ion-input>
-    <ion-note slot="helper">Ingrese un correo valido</ion-note>
-    <ion-note slot="error">Correo Invalido</ion-note>
-  </ion-item>
-  <ion-item class="ion-margin" fill="outline">
-    <ion-label position="floating">Telefono</ion-label>
-    <ion-input type="tel" placeholder="9 41687845" maxlength="9"></ion-input>
-  </ion-item>
-  <ion-grid>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="5">
-        <ion-button>
-          Continuar
-          <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ng-container *ngIf="!nextStep">
+    <ion-text class="ion-margin ion-text-center" color="white">
+      <h3>Ingresa tus datos para continuar</h3>
+    </ion-text>
+    <form (ngSubmit)="crearCliente()"></form>
+    <ion-item class="ion-margin ion-margin-top" fill="outline">
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input
+        [(ngModel)]="cliente.nombre"
+        name="nombre"
+        placeholder="Ingrese su nombre"
+      ></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin" fill="outline">
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input
+        [(ngModel)]="cliente.appa"
+        name="appa"
+        placeholder="Ingrese su apellido"
+      ></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin" fill="outline">
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input
+        [(ngModel)]="cliente.email"
+        name="email"
+        type="email"
+      ></ion-input>
+      <ion-note slot="helper">Ingrese un correo valido</ion-note>
+      <ion-note slot="error">Correo Invalido</ion-note>
+    </ion-item>
+    <ion-item class="ion-margin" fill="outline">
+      <ion-label position="floating">Telefono</ion-label>
+      <ion-input
+        [(ngModel)]="cliente.cel"
+        name="cel"
+        type="tel"
+        placeholder="9 41687845"
+        maxlength="9"
+      ></ion-input>
+    </ion-item>
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="5">
+          <ion-button (click)="crearCliente()">
+            Continuar
+            <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-container>
+
+  <ng-container *ngIf="nextStep">
+    <h1>siguiente paso</h1>
+    <ion-text class="ion-margin ion-text-center" color="white">
+      <h3>Ingresa tus datos para continuar</h3>
+    </ion-text>
+    <form (ngSubmit)="crearReserva()"></form>
+    <ion-list>
+      <ion-item class="ion-margin" fill="outline">
+        <ion-select
+          interface="action-sheet"
+          [(ngModel)]="reserva.cant_personas"
+          name="cant_personas"
+          placeholder="Selecciona la cantidad de personas"
+        >
+          <ion-select-option
+            *ngFor="let item of cantidadPersonas"
+            [value]="item.numero"
+            >{{item.nombre}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-accordion-group class="ion-margin" fill="outline">
+      <ion-accordion value="first">
+        <ion-item slot="header" color="light">
+          <ion-label>Fecha de reserva</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-datetime
+            min="2022-11-02T00:00:00"
+            preferWheel="false"
+            [(ngModel)]="reserva.fecha_reserva"
+            presentation="date"
+          ></ion-datetime>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+
+    <ion-list>
+      <ion-item class="ion-margin" fill="outline">
+        <ion-select
+          interface="action-sheet"
+          [(ngModel)]="reserva.hora_reserva"
+          name="hora_reserva"
+          placeholder="Selecciona la hora de la reserva"
+        >
+          <ion-select-option
+            *ngFor="let item of horasDisponibles"
+            [value]="item.hora"
+            >{{item.hora}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="5">
+          <ion-button (click)="crearReserva()"> Reservar </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-container>
 </ion-content>

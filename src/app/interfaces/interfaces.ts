@@ -32,3 +32,32 @@ export interface Ingrediente {
   unidad: string;
   fecha_vencimiento: Date;
 }
+
+export interface ReservasResponse {
+  reservas: Reserva[];
+}
+
+export interface Reserva {
+  id_reserva?: number;
+  hora_reserva: string;
+  cant_personas: number;
+  fecha_reserva: string;
+  id_cliente: number;
+  id_mesa?: number;
+  createdAt?: Date;
+  updatedAt?: Date;
+  cliente?: Cliente;
+}
+
+export interface Cliente {
+  id_cliente?: number;
+  nombre: string;
+  appa: string;
+  email: string;
+  cel: number;
+}
+
+export interface CancelarReservaResponse {
+  msg: string;
+  cancelarReserva: number[];
+}

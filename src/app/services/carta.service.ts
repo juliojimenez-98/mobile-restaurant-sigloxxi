@@ -15,45 +15,47 @@ export class CartaService {
   constructor(private http: HttpClient) {}
 
   getPlatos() {
-    return this.http.get<RespPlatos>('http://localhost:8080/api/platos/platos');
+    return this.http.get<RespPlatos>(
+      'http://192.168.1.85:8080/api/platos/platos'
+    );
   }
 
   getReservasPorEmail(email: string) {
     return this.http.get<ReservasResponse>(
-      `http://localhost:8080/api/reserva/reserva/${email}`
+      `http://192.168.1.85:8080/api/reserva/reserva/${email}`
     );
   }
 
   cancelarReserva(id: number, estado: number) {
     return this.http.put<CancelarReservaResponse>(
-      `http://localhost:8080/api/reserva/cancelar/${id}`,
+      `http://192.168.1.85:8080/api/reserva/cancelar/${id}`,
       { estado }
     );
   }
 
   confirmarReserva(id: number, estado: number) {
     return this.http.put<CancelarReservaResponse>(
-      `http://localhost:8080/api/reserva/confirmar/${id}`,
+      `http://192.168.1.85:8080/api/reserva/confirmar/${id}`,
       { estado }
     );
   }
 
   getClientePorEmail(email: string) {
     return this.http.get<any>(
-      `http://localhost:8080/api/clientes/cliente/${email}`
+      `http://192.168.1.85:8080/api/clientes/cliente/${email}`
     );
   }
 
   crearCliente(cliente: Cliente) {
     return this.http.post<Cliente>(
-      `http://localhost:8080/api/clientes/cliente`,
+      `http://192.168.1.85:8080/api/clientes/cliente`,
       cliente
     );
   }
 
   crearReserva(reserva: Reserva) {
     return this.http.post<Reserva>(
-      `http://localhost:8080/api/reserva/reserva`,
+      `http://192.168.1.85:8080/api/reserva/reserva`,
       reserva
     );
   }

@@ -97,7 +97,6 @@ export class Tab2Page {
           });
           this.router.navigateByUrl('/tabs/tab3');
           this.nextStep = false;
-          window.location.reload();
         }
       });
     }

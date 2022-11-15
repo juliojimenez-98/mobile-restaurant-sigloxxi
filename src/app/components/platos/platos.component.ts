@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Plato } from '../../interfaces/interfaces';
+import { Plato, Bebestible } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-platos',
@@ -8,9 +8,11 @@ import { Plato } from '../../interfaces/interfaces';
 })
 export class PlatosComponent implements OnInit {
   @Input() platos: Plato[] = [];
+  @Input() bebestibles: Bebestible[] = [];
   constructor() {}
 
   ngOnInit() {
     this.platos;
+    this.bebestibles;
   }
 }

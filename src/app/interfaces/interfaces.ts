@@ -2,6 +2,19 @@ export interface RespPlatos {
   platos: Plato[];
 }
 
+export interface RespBebestibles {
+  bebestibles: Bebestible[];
+}
+
+export interface Bebestible {
+  id_bebida?: number;
+  nombre: string;
+  precio: number;
+  stock: number;
+  stock_cri: number;
+  unidad: string;
+  fecha_vencimiento: string;
+}
 export interface Plato {
   id_plato: number;
   desc: number;

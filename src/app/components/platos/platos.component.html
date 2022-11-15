@@ -1,4 +1,23 @@
 <ion-accordion-group>
+  <ion-accordion value="cero">
+    <ion-item slot="header" color="light">
+      <ion-label>Bebestibles</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-card fixed *ngFor="let item of bebestibles">
+        <ng-container>
+          <img
+            alt="imagen"
+            src="https://www.ccu.cl/wp-content/uploads/2019/02/BODEG.jpg"
+          />
+          <ion-card-header>
+            <ion-card-title>{{ item.nombre }}</ion-card-title>
+            <ion-card-subtitle>{{ item.precio }}</ion-card-subtitle>
+          </ion-card-header>
+        </ng-container>
+      </ion-card>
+    </div>
+  </ion-accordion>
   <ion-accordion value="first">
     <ion-item slot="header" color="light">
       <ion-label>Tragos</ion-label>

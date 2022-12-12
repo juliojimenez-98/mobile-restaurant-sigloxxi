@@ -6,10 +6,7 @@
     <div class="ion-padding" slot="content">
       <ion-card fixed *ngFor="let item of bebestibles">
         <ng-container>
-          <img
-            alt="imagen"
-            src="https://www.ccu.cl/wp-content/uploads/2019/02/BODEG.jpg"
-          />
+          <img alt="imagen" [src]="item.img" />
           <ion-card-header>
             <ion-card-title>{{ item.nombre }}</ion-card-title>
             <ion-card-subtitle>{{ item.precio }}</ion-card-subtitle>

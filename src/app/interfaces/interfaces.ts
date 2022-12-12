@@ -14,6 +14,7 @@ export interface Bebestible {
   stock_cri: number;
   unidad: string;
   fecha_vencimiento: string;
+  img: string;
 }
 export interface Plato {
   id_plato: number;
